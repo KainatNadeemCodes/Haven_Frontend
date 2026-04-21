@@ -1,0 +1,256 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+@layer base {
+  :root {
+    --background: 40 6% 95%;
+    --foreground: 0 0% 18%;
+
+    --card: 37 7% 90%;
+    --card-foreground: 0 0% 18%;
+
+    --popover: 37 7% 90%;
+    --popover-foreground: 0 0% 18%;
+
+    --primary: 150 15% 62%;
+    --primary-foreground: 0 0% 18%;
+
+    --secondary: 210 18% 64%;
+    --secondary-foreground: 0 0% 18%;
+
+    --muted: 37 5% 87%;
+    --muted-foreground: 0 0% 42%;
+
+    --accent: 150 12% 56%;
+    --accent-foreground: 0 0% 18%;
+
+    --destructive: 12 32% 54%;
+    --destructive-foreground: 40 6% 96%;
+
+    --border: 37 5% 83%;
+    --input: 37 5% 83%;
+    --ring: 150 15% 62%;
+
+    --radius: 1rem;
+
+    /* Haven premium tokens */
+    --calm-blue: 210 16% 82%;
+    --calm-blue-deep: 210 18% 64%;
+    --sage: 150 12% 80%;
+    --sage-deep: 150 15% 52%;
+    --warm-cream: 40 6% 95%;
+    --warm-peach: 20 22% 84%;
+    --soft-lavender: 260 12% 84%;
+    --breathe-glow: 150 15% 58%;
+
+    /* Talk tab colors */
+    --talk-break: 210 16% 80%;
+    --talk-hungry: 32 20% 76%;
+    --talk-loud: 340 14% 80%;
+    --talk-help: 20 22% 76%;
+
+    /* Premium surfaces */
+    --surface: 37 7% 90%;
+    --surface-raised: 40 8% 93%;
+    --shadow-color: 0 0% 18%;
+
+    --sidebar-background: 40 6% 93%;
+    --sidebar-foreground: 0 0% 18%;
+    --sidebar-primary: 0 0% 16%;
+    --sidebar-primary-foreground: 40 6% 96%;
+    --sidebar-accent: 150 10% 88%;
+    --sidebar-accent-foreground: 0 0% 16%;
+    --sidebar-border: 37 5% 83%;
+    --sidebar-ring: 150 15% 62%;
+  }
+
+  .dark {
+    --background: 220 10% 10%;
+    --foreground: 40 6% 84%;
+
+    --card: 220 8% 14%;
+    --card-foreground: 40 6% 84%;
+
+    --popover: 220 8% 14%;
+    --popover-foreground: 40 6% 84%;
+
+    --primary: 150 14% 40%;
+    --primary-foreground: 40 6% 88%;
+
+    --secondary: 210 14% 28%;
+    --secondary-foreground: 40 6% 84%;
+
+    --muted: 220 8% 18%;
+    --muted-foreground: 220 6% 50%;
+
+    --accent: 150 12% 34%;
+    --accent-foreground: 40 6% 88%;
+
+    --destructive: 12 30% 40%;
+    --destructive-foreground: 40 6% 88%;
+
+    --border: 220 8% 20%;
+    --input: 220 8% 20%;
+    --ring: 150 14% 40%;
+
+    /* Dark premium tokens */
+    --calm-blue: 210 12% 22%;
+    --calm-blue-deep: 210 16% 32%;
+    --sage: 150 8% 20%;
+    --sage-deep: 150 12% 30%;
+    --warm-cream: 220 8% 14%;
+    --warm-peach: 20 14% 22%;
+    --soft-lavender: 260 10% 22%;
+    --breathe-glow: 150 14% 32%;
+
+    --talk-break: 210 10% 22%;
+    --talk-hungry: 32 14% 22%;
+    --talk-loud: 340 10% 22%;
+    --talk-help: 20 16% 24%;
+
+    --surface: 220 8% 12%;
+    --surface-raised: 220 8% 16%;
+    --shadow-color: 0 0% 0%;
+
+    --sidebar-background: 220 10% 10%;
+    --sidebar-foreground: 40 6% 84%;
+    --sidebar-primary: 40 6% 84%;
+    --sidebar-primary-foreground: 220 10% 10%;
+    --sidebar-accent: 220 8% 16%;
+    --sidebar-accent-foreground: 40 6% 84%;
+    --sidebar-border: 220 8% 18%;
+    --sidebar-ring: 150 14% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', 'Quicksand', sans-serif;
+    line-height: 1.6;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Theme transition */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 0.8s ease, color 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease !important;
+}
+
+/* Breathing animation */
+@keyframes breathe-in {
+  0% { transform: scale(0.65); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes breathe-out {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.65); opacity: 0.5; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.3; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes fade-up-in {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.breathe-in {
+  animation: breathe-in 4s ease-in-out forwards;
+}
+
+.breathe-out {
+  animation: breathe-out 4s ease-in-out forwards;
+}
+
+.pulse-ring {
+  animation: pulse-ring 4s ease-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up-in 0.5s ease-out both;
+}
+
+.animate-fade-up-delay-1 {
+  animation: fade-up-in 0.5s ease-out 0.1s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up-in 0.5s ease-out 0.2s both;
+}
+
+.animate-fade-up-delay-3 {
+  animation: fade-up-in 0.5s ease-out 0.3s both;
+}
+
+/* Premium card hover */
+.premium-card {
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+}
+
+.premium-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px -12px hsl(var(--shadow-color) / 0.08);
+}
+
+.premium-card:active {
+  transform: scale(0.97);
+}
+
+/* Soft glass effect */
+.glass-surface {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Success feedback */
+@keyframes success-pulse {
+  0% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.2); }
+  70% { box-shadow: 0 0 0 10px hsl(var(--primary) / 0); }
+  100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0); }
+}
+
+.success-pulse {
+  animation: success-pulse 0.8s ease-out;
+}
+
+/* Gentle confirm */
+@keyframes gentle-check {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.gentle-check {
+  animation: gentle-check 0.5s ease-out both;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
